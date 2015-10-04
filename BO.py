@@ -17,6 +17,19 @@ jot = {u'ё': u'о',
     u'ю': u'у',
     u'я': u'а',
     u'е': u'э'}
+    
+pos_alias = {u'NUM': u'D',
+    u'V': u'V',
+    u'S': u'S',
+    u'ADV': u'B',
+    u'A': u'A',
+    u'SPRO': u'M',
+    u'PR': u'P',
+    u'PART': u'R',
+    u'APRO': u'M',
+    u'ANUM': u'D',
+    u'PART': u'',
+    u'CONJ': u'C'}
 
 def line_position(string):
     r = re.search(u'id="(\d+)" s="(.+?)"', string)
@@ -47,7 +60,16 @@ def ikt_schema(string):
     schema = r.group(1)
     return schema
 
-
+def pos_stream(string):
+    string = re.sub(u'<.+?>', u'', string)
+    anals = string.split('}')
+    for ana in anals:
+        r = re.search(u'=([A-Z]+?)(=|,)', ana)
+        if r:
+            pos = r.group(1)
+            
+        
+    
 
 def main():
     

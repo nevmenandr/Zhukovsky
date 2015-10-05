@@ -27,7 +27,7 @@ import pylab
 from sklearn.manifold import MDS
 from scipy.cluster.hierarchy import ward, dendrogram
 
-pth = '/home/boris/Work/Zhukovsky/songs/lemmed/'
+pth = 'songs/lemmed/'
 stopwords = nltk.corpus.stopwords.words('russian')
 
 def russianTokenizer(text):

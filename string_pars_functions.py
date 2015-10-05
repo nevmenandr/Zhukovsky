@@ -28,7 +28,6 @@ pos_alias = {u'NUM': u'D',
     u'APRO': u'M',
     u'PR': u'P',
     u'PART': u'R',
-    u'APRO': u'M',
     u'ANUM': u'D',
     u'INTJ': u'I',
     u'CONJ': u'C'}

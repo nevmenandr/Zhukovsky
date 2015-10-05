@@ -77,8 +77,8 @@ def main():
         allwords = tokenize_only(i)
         totalvocab_tokenized.extend(allwords)
         
-    vocab_frame = pd.DataFrame({'words': totalvocab_tokenized}, index = totalvocab_tokenized)
-    fwr.write( 'there are ' + str(vocab_frame.shape[0]) + ' items in vocab_frame\n' )
+    vocab_frame = pd.DataFrame({'words': totalvocab_tokenized}, index=totalvocab_tokenized)
+    fwr.write('there are ' + str(vocab_frame.shape[0]) + ' items in vocab_frame\n')
     
     #vocab_frame = pd.DataFrame({'words': totalvocab_tokenized}, index = totalvocab_stemmed)
     
@@ -103,10 +103,10 @@ def main():
 
 
     texts = { 'title': titles, 'content': contents, 'cluster': clusters }
-    frame = pd.DataFrame(texts, index = [clusters] , columns = ['title', 'cluster'])
-    fwr.write( str(frame['cluster'].value_counts()) )
+    frame = pd.DataFrame(texts, index=[clusters], columns=['title', 'cluster'])
+    fwr.write(str(frame['cluster'].value_counts()))
     
-    fwr.write( u'Top terms per cluster:\n' )
+    fwr.write(u'Top terms per cluster:\n')
     order_centroids = km.cluster_centers_.argsort()[:, ::-1] 
     
     
@@ -147,13 +147,13 @@ def main():
                 label=cluster_names[name], color=cluster_colors[name], 
                 mec='none')
         ax.set_aspect('auto')
-        ax.tick_params(\
+        ax.tick_params(
             axis= 'x',          # changes apply to the x-axis
             which='both',      # both major and minor ticks are affected
             bottom='off',      # ticks along the bottom edge are off
             top='off',         # ticks along the top edge are off
             labelbottom='off')
-        ax.tick_params(\
+        ax.tick_params(
             axis= 'y',         # changes apply to the y-axis
             which='both',      # both major and minor ticks are affected
             left='off',      # ticks along the bottom edge are off
@@ -171,11 +171,11 @@ def main():
     
     linkage_matrix = ward(dist) #define the linkage_matrix using ward clustering pre-computed distances
 
-    fig, ax = plt.subplots(figsize=(12, 10)) # set size
-    ax = dendrogram(linkage_matrix, orientation="right", labels=titles);
+    fig, ax = plt.subplots(figsize=(12, 10))  # set size
+    ax = dendrogram(linkage_matrix, orientation="right", labels=titles)
     
-    plt.tick_params(\
-        axis= 'x',          # changes apply to the x-axis
+    plt.tick_params(
+        axis='x',          # changes apply to the x-axis
         which='both',      # both major and minor ticks are affected
         bottom='off',      # ticks along the bottom edge are off
         top='off',         # ticks along the top edge are off

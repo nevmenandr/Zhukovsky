@@ -8,12 +8,14 @@ tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
 re_line = re.compile('>([^<]*)<br>')
 uppercase = u'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 punct = ':.?!";'
+punct_term = '.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
 text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
 
 corpus = [tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0]) for line in text]
 
+# line is a stream of tokens, corpus is a stream of lines
 
 def word_count(line):
     return len(line)
@@ -38,6 +40,19 @@ def punctuation(line):
         if word in punct:
             return True
     return False
+
+
+def question(line):
+    for word in line:
+        if '?' in word:
+            return True
+    return False
+
+def line_sentence(line):
+    if line[-1] in punct_term:
+        return True
+    else:
+        return False
 
 if __name__ == '__main__':
     pass

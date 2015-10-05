@@ -22,13 +22,15 @@ pos_alias = {u'NUM': u'D',
     u'V': u'V',
     u'S': u'S',
     u'ADV': u'B',
+    u'ADVPRO': u'M',
     u'A': u'A',
     u'SPRO': u'M',
+    u'APRO': u'M',
     u'PR': u'P',
     u'PART': u'R',
     u'APRO': u'M',
     u'ANUM': u'D',
-    u'PART': u'',
+    u'INTJ': u'I',
     u'CONJ': u'C'}
 
 def line_position(string):

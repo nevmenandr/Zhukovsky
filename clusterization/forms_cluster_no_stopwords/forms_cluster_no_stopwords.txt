@@ -1,0 +1,11 @@
+there are 98422 items in vocab_frame
+
+24	3722	
+1    13
+0    11
+dtype: int64Top terms per cluster:
+
+Cluster 0 words: море,  nan,  моря,  феакийских,  царь,  земли,  в,  земле,  nan,  nan,  берёг,  спутники,  nan,  немедля,  так,  nan,  феакиян,  остров,  nan,  я, 
+Cluster 0 titles: IV, XII, VII, IX, III, XI, XIII, VI, X, V, VIII,
+Cluster 1 words: nan,  nan,  nan,  свинопас,  лук,  nan,  женихи,  nan,  сын,  женихов,  женихам,  nan,  nan,  кончил,  nan,  хитроумный,  сказал,  чем,  сына,  nan, 
+Cluster 1 titles: XV, XX, XVII, XXII, XVIII, XIX, XVI, XXI, XXIV, XXIII, I, II, XIV,

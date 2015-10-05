@@ -1,0 +1,11 @@
+there are 98548 items in vocab_frame
+24	
+3958	
+1    15
+0     9
+dtype: int64Top terms per cluster:
+
+Cluster 0 words: алкиноя,  феакийский,  царь,  цирцея,  пещера,  дева,  спутник,  посейдон,  товарищ,  ветер,  баран,  брег,  феакиянин,  река,  циклоп,  весло,  в,  стадо,  странник,  утес, 
+Cluster 0 titles: XII, VII, IX, XI, XIII, VI, X, V, VIII,
+Cluster 1 words: жених,  пенелопа,  телем,  евмей,  свинопас,  лук,  сын,  евриклея,  старец,  менелай,  антина,  нестор,  атрид,  телемах,  странник,  рассказывать,  стрела,  царица,  копье,  так, 
+Cluster 1 titles: XV, IV, XX, XVII, XXII, XVIII, III, XIX, XVI, XXI, XXIV, XXIII, I, II, XIV,

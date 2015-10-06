@@ -1,5 +1,6 @@
 # coding: utf-8
 __author__ = 'liza'
+import re
 from string_pars_functions_2 import word_count, tfidf, person_names, punctuation, question, line_sentence
 from string_pars_functions import line_position, accent_vowels, ikt_schema, pos_stream
 import codecs, re
@@ -14,12 +15,15 @@ pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', '
 
 def main():
     t = codecs.open('metrics_table.csv', 'w', 'utf-8')
-    t.write('position\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
+    t.write('id\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
             'repetition\tquestion\tnegation\tline_sentence\tconj_constructions\n')
     text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
     text.close()
     text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
     for line in text:
+        idr = re.search(u'<id="(\d+)"', line)
+        if idr:
+            line_id = idr.group(1)
         line = line.strip()
         print line
         line_arr = tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0])
@@ -36,7 +40,7 @@ def main():
         #neg =
         sent = str(line_sentence(line_arr))
         #conj =
-        table_line = '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t\t' + names + '\t' + ikt + '\t' + punct +\
+        table_line = line_id + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t\t' + names + '\t' + ikt + '\t' + punct +\
                      '\t\t' + quest + '\t\t' + sent + '\t'
         t.write(table_line + '\n')
     t.close()

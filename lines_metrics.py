@@ -50,9 +50,10 @@ def main():
         quest = str(question(line_arr))
         neg = str(negation(line))
         sent = str(line_sentence(line_arr))
+        constr = str(ili(line))
         #table_line = str(line_id) + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
         #             '\t\t' + quest + '\t\t' + sent + '\t'
-        primary_line_metrics[line_id] = [words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, sent]
+        primary_line_metrics[line_id] = [ano, words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, sent, str(num), str(s), str(v), str(a), str(adv), str(spro), str(pr), str(part), str(conj), str(intj), constr]
         #t.write(table_line + '\n')
     t.close()
 

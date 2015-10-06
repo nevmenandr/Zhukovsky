@@ -126,9 +126,10 @@ def ili(string):
     for word in words:
         word = words.strip()
         if word == u'или':
-            return True
+            return 1
         elif word == u'иль':
-            return True
+            return 1
+    return 0
 
 def main():
     return 0

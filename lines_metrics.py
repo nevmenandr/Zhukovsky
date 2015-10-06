@@ -22,7 +22,7 @@ def main():
     for line in text:
         idr = re.search(u'<id="(\d+)"', line)
         if idr:
-            line_id = idr.group(1)
+            line_id = int(idr.group(1))
             lemmed_lines[line_id] = line
     text.close()
     text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
@@ -44,13 +44,13 @@ def main():
         punct = str(punctuation(line_arr))
         #repetition =
         quest = str(question(line_arr))
-        #neg =
+        neg = str(negation(line))
         sent = str(line_sentence(line_arr))
         #conj =
-        table_line = line_id + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
-                     '\t\t' + quest + '\t\t' + sent + '\t'
+        #table_line = str(line_id) + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
+        #             '\t\t' + quest + '\t\t' + sent + '\t'
         primary_line_metrics[line_id] = [words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, sent]
-        t.write(table_line + '\n')
+        #t.write(table_line + '\n')
     t.close()
 
 if __name__ == '__main__':

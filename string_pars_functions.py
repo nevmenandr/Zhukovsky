@@ -66,6 +66,16 @@ def pos_stream(string):
     string = re.sub(u'<.+?>', u'', string)
     anals = string.split('}')
     pos_string = ''
+    num = 0
+    s = 0
+    v = 0
+    a = 0
+    adv = 0
+    spro = 0
+    pr = 0
+    part = 0
+    conj = 0
+    intj = 0
     for ana in anals:
         r = re.search(u'=([A-Z]+?)(=|,)', ana)
         if r:
@@ -73,7 +83,27 @@ def pos_stream(string):
             if pos in pos_alias:
                 posa = pos_alias[pos]
                 pos_string += posa
-    return pos_string
+            if pos == 'NUM':
+                num += 1
+            elif pos == 'S':
+                s += 1
+            elif pos == 'V':
+                v += 1
+            elif pos == 'A':
+                a += 1
+            elif pos == 'ADV':
+                adv += 1
+            elif pos == 'SPRO':
+                spro += 1
+            elif pos == 'PR':
+                pr += 1
+            elif pos == 'PART':
+                part += 1
+            elif pos == 'CONJ':
+                conj += 1
+            elif pos == 'INTJ':
+                intj += 1
+    return pos_string, num, s, v, a, adv, spro, pr, part, conj, intj
             
         
     

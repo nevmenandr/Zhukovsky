@@ -105,7 +105,20 @@ def pos_stream(string):
                 intj += 1
     return pos_string, num, s, v, a, adv, spro, pr, part, conj, intj
             
-        
+def negation(string):
+    string = re.sub(u'<.+?>', u'', string)
+    neg = 0
+    words = string.split()
+    for word in words:
+        word = words.strip()
+        if word == u'не':
+            neg += 1
+        elif word == u'ни':
+            neg += 1
+        elif word == u'без':
+            neg += 1
+    return neg
+    
     
 
 def main():

@@ -8,7 +8,7 @@ tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
 re_line = re.compile('>([^<]*)<br>')
 uppercase = u'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 punct = ':.?!";'
-punct_term = '.?!"…'
+punct_term = u'.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
 text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
@@ -23,7 +23,9 @@ def word_count(line):
 
 def tfidf(line):
     tfidfs = compute_tfidf(line, corpus)
-    return len([x for x in tfidfs if tfidfs[x] > 0.7])
+    #for w in tfidfs:
+    #    print w, tfidfs[w]
+    return len([x for x in tfidfs if tfidfs[x] > 0.5])
 
 
 def person_names(line):
@@ -38,21 +40,21 @@ def person_names(line):
 def punctuation(line):
     for word in line:
         if word in punct:
-            return True
-    return False
+            return 1
+    return 0
 
 
 def question(line):
     for word in line:
         if '?' in word:
-            return True
-    return False
+            return 1
+    return 0
 
 def line_sentence(line):
     if line[-1] in punct_term:
-        return True
+        return 1
     else:
-        return False
+        return 0
 
 if __name__ == '__main__':
     pass

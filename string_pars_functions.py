@@ -39,9 +39,10 @@ def line_position(string):
     partition = songs_num[song_num]
     prev = partition['begin']
     for indx, p_name in enumerate(parts_names):
+        #print line_num, prev, partition[p_name]
         if indx == 0:
             continue
-        if prev <= line_num <= partition[p_name]:
+        if prev <= line_num < partition[p_name]:
             part = p_name
             break
         else:

@@ -33,6 +33,10 @@ def main():
             line_id = int(idr.group(1))
         line = line.strip()
         print line
+        if u'#Гек6ж' not in line:
+            ano = '1'
+        else:
+            ano = '0'
         line_arr = tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0])
         position = line_position(line)
         words_count = str(word_count(line_arr))

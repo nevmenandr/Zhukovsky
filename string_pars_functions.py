@@ -119,7 +119,16 @@ def negation(string):
             neg += 1
     return neg
     
-    
+def ili(string):
+    string = re.sub(u'<.+?>', u'', string)
+    neg = 0
+    words = string.split()
+    for word in words:
+        word = words.strip()
+        if word == u'или':
+            return True
+        elif word == u'иль':
+            return True
 
 def main():
     return 0

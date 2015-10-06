@@ -30,7 +30,7 @@ def main():
     for line in text:
         idr = re.search(u'<id="(\d+)"', line)
         if idr:
-            line_id = idr.group(1)
+            line_id = int(idr.group(1))
         line = line.strip()
         print line
         line_arr = tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0])

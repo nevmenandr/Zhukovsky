@@ -65,16 +65,20 @@ def ikt_schema(string):
 def pos_stream(string):
     string = re.sub(u'<.+?>', u'', string)
     anals = string.split('}')
+    pos_string = ''
     for ana in anals:
         r = re.search(u'=([A-Z]+?)(=|,)', ana)
         if r:
             pos = r.group(1)
+            if pos in pos_alias:
+                posa = pos_alias[pos]
+                pos_string += posa
+    return pos_string
             
         
     
 
 def main():
-    
     return 0
 
 if __name__ == '__main__':

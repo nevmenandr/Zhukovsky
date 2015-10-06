@@ -20,6 +20,15 @@ corpus = [tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0]) for lin
 def word_count(line):
     return len(line)
 
+def word_count2(line):
+    line = re.sub(u'<.+?>', u'', line)
+    words = line.split()
+    i_words = 0
+    for word in words:
+        if re.search(u'[А-Яа-я]', word):
+            i_words += 1
+    return i_words
+    
 
 def tfidf(line):
     tfidfs = compute_tfidf(line, corpus)

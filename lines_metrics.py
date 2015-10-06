@@ -2,7 +2,7 @@
 __author__ = 'liza'
 import re
 import sys
-from string_pars_functions_2 import word_count, tfidf, person_names, punctuation, question, line_sentence
+from string_pars_functions_2 import word_count, tfidf, person_names, punctuation, question, line_sentence, word_count2
 from string_pars_functions import line_position, accent_vowels, ikt_schema, pos_stream, negation, ili
 import codecs, re
 from nltk.tokenize import RegexpTokenizer
@@ -13,6 +13,15 @@ punct = ':.?!";'
 punct_term = '.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
+def clean(line):
+    line = re.sub(u'<.+?>', u'', line)
+    line = line.replace(u'`', '')
+    words = line.split()
+    true_words = []
+    for word in words:
+        if re.search(u'[А-Яа-я]', word):
+            true_words.append(word)
+    return true_words
 
 def main():
     t = codecs.open('metrics_table_no_context.csv', 'w', 'utf-8')
@@ -39,8 +48,10 @@ def main():
         else:
             ano = '0'
         line_arr = tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0])
+        #line_arr = clean(line)
         position = line_position(line)
-        words_count = str(word_count(line_arr))
+        #words_count = str(word_count(line_arr))
+        words_count = str(word_count2(line))
         acc_v = accent_vowels(line)
         tf_idf = str(tfidf(line_arr))
         pos, num, s, v, a, adv, spro, pr, part, conj, intj = pos_stream(lemmed_lines[line_id])

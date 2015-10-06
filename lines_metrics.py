@@ -17,7 +17,13 @@ def main():
     t = codecs.open('metrics_table.csv', 'w', 'utf-8')
     t.write('id\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
             'repetition\tquestion\tnegation\tline_sentence\tconj_constructions\n')
-    text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
+    text = codecs.open('zhuk-all-nacnt-lemm.txt', 'r', 'utf-8')
+    lemmed_lines = {}
+    for line in text:
+        idr = re.search(u'<id="(\d+)"', line)
+        if idr:
+            line_id = idr.group(1)
+            lemmed_lines[line_id] = line
     text.close()
     text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
     for line in text:
@@ -27,11 +33,11 @@ def main():
         line = line.strip()
         print line
         line_arr = tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0])
-        #position = line_position(line)
+        position = line_position(line)
         words_count = str(word_count(line_arr))
         acc_v = accent_vowels(line)
         tf_idf = str(tfidf(line_arr))
-        #pos =
+        pos, num, s, v, a, adv, spro, pr, part, conj, intj = pos_stream(lemmed_lines[line_id])
         names = str(person_names(line_arr))
         ikt = ikt_schema(line)
         punct = str(punctuation(line_arr))
@@ -40,7 +46,7 @@ def main():
         #neg =
         sent = str(line_sentence(line_arr))
         #conj =
-        table_line = line_id + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t\t' + names + '\t' + ikt + '\t' + punct +\
+        table_line = line_id + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
                      '\t\t' + quest + '\t\t' + sent + '\t'
         t.write(table_line + '\n')
     t.close()

@@ -42,7 +42,7 @@ def line_position(string):
         #print line_num, prev, partition[p_name]
         if indx == 0:
             continue
-        if prev <= line_num < partition[p_name]:
+        if prev <= line_num <= partition[p_name]:
             part = p_name
             break
         else:
@@ -59,7 +59,7 @@ def accent_vowels(string):
             
 def ikt_schema(string):
     r = re.search(u'"><#(.+?) ([0-4*]+)>', string)
-    schema = r.group(1)
+    schema = r.group(2)
     return schema
 
 def pos_stream(string):
@@ -110,7 +110,7 @@ def negation(string):
     neg = 0
     words = string.split()
     for word in words:
-        word = words.strip()
+        word = word.strip()
         if word == u'не':
             neg += 1
         elif word == u'ни':
@@ -124,7 +124,7 @@ def ili(string):
     neg = 0
     words = string.split()
     for word in words:
-        word = words.strip()
+        word = word.strip()
         if word == u'или':
             return 1
         elif word == u'иль':

@@ -1,8 +1,9 @@
 # coding: utf-8
 __author__ = 'liza'
 import re
+import sys
 from string_pars_functions_2 import word_count, tfidf, person_names, punctuation, question, line_sentence
-from string_pars_functions import line_position, accent_vowels, ikt_schema, pos_stream
+from string_pars_functions import line_position, accent_vowels, ikt_schema, pos_stream, negation, ili
 import codecs, re
 from nltk.tokenize import RegexpTokenizer
 tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
@@ -14,9 +15,9 @@ pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', '
 
 
 def main():
-    t = codecs.open('metrics_table.csv', 'w', 'utf-8')
-    #t.write('id\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
-    #        'repetition\tquestion\tnegation\tline_sentence\tconj_constructions\n')
+    t = codecs.open('metrics_table_no_context.csv', 'w', 'utf-8')
+    t.write('id\tanomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
+            'question\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tandjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tinterjection\tconj_constructions\n')
     text = codecs.open('zhuk-all-nacnt-lemm.txt', 'r', 'utf-8')
     lemmed_lines = {}
     for line in text:
@@ -32,7 +33,7 @@ def main():
         if idr:
             line_id = int(idr.group(1))
         line = line.strip()
-        print line
+        sys.stdout.write(line + '\n')
         if u'#Гек6ж' not in line:
             ano = '1'
         else:
@@ -53,9 +54,15 @@ def main():
         constr = str(ili(line))
         #table_line = str(line_id) + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
         #             '\t\t' + quest + '\t\t' + sent + '\t'
-        primary_line_metrics[line_id] = [ano, words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, sent, str(num), str(s), str(v), str(a), str(adv), str(spro), str(pr), str(part), str(conj), str(intj), constr]
-        #t.write(table_line + '\n')
+        primary_line_metrics[line_id] = [ano, position, words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, neg, sent, str(num), str(s), str(v), str(a), str(adv), str(spro), str(pr), str(part), str(conj), str(intj), constr]
+        table_line = u'\t'.join(primary_line_metrics[line_id])
+        t.write(str(line_id) + '\t' + table_line + '\n')
     t.close()
+    #t = codecs.open('metrics_table_with_context.csv', 'w', 'utf-8')
+    #for line_id in primary_line_metrics:
+        
+        #primary_line_metrics[line_id]
+        
 
 if __name__ == '__main__':
     main()

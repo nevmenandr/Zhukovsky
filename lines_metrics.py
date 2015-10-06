@@ -15,8 +15,8 @@ pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', '
 
 def main():
     t = codecs.open('metrics_table.csv', 'w', 'utf-8')
-    t.write('id\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
-            'repetition\tquestion\tnegation\tline_sentence\tconj_constructions\n')
+    #t.write('id\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
+    #        'repetition\tquestion\tnegation\tline_sentence\tconj_constructions\n')
     text = codecs.open('zhuk-all-nacnt-lemm.txt', 'r', 'utf-8')
     lemmed_lines = {}
     for line in text:
@@ -26,6 +26,7 @@ def main():
             lemmed_lines[line_id] = line
     text.close()
     text = codecs.open('zhuk-all.txt', 'r', 'utf-8')
+    primary_line_metrics = {}
     for line in text:
         idr = re.search(u'<id="(\d+)"', line)
         if idr:
@@ -48,6 +49,7 @@ def main():
         #conj =
         table_line = line_id + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
                      '\t\t' + quest + '\t\t' + sent + '\t'
+        primary_line_metrics[line_id] = [words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, sent]
         t.write(table_line + '\n')
     t.close()
 

@@ -24,7 +24,7 @@ def clean(line):
     return true_words
 
 def main():
-    t = codecs.open('metrics_table_no_context.csv', 'w', 'utf-8')
+    t = codecs.open('metrics_table_no_context.tsv', 'w', 'utf-8')
     t.write('id\tanomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
             'question\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tandjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tinterjection\tconj_constructions\n')
     text = codecs.open('zhuk-all-nacnt-lemm.txt', 'r', 'utf-8')

@@ -47,11 +47,11 @@ def main():
             ano = '1'
         else:
             ano = '0'
-        line_arr = tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0])
+        line_arr = [word for word in tokenizer.tokenize(re_line.findall(line.replace(u'`', ''))[0]) if re.search(u'[А-Яа-я]', word)]
         #line_arr = clean(line)
         position = line_position(line)
-        #words_count = str(word_count(line_arr))
-        words_count = str(word_count2(line))
+        words_count = str(word_count(line_arr))
+        #words_count = str(word_count2(line))
         acc_v = accent_vowels(line)
         tf_idf = str(tfidf(line_arr))
         pos, num, s, v, a, adv, spro, pr, part, conj, intj = pos_stream(lemmed_lines[line_id])

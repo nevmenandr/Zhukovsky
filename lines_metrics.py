@@ -13,7 +13,7 @@ punct = ':.?!";'
 punct_term = '.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
-window = 3
+window = 7
 
 def clean(line):
     line = re.sub(u'<.+?>', u'', line)

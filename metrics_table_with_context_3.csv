@@ -1,0 +1,20 @@
+id	anomalia	position	words_count	accent_vowels	tf_idf	pos	names	ikt_schema	punctuation_in_the_middle	question	negation	line_sentence	numerals	subject	verbs	andjectives	adverbs	personal_pronomen	prepositions	part	conjunction	interjection	conj_constructions	prev_word_count	prev_accent_vowels	prev_tf_idf	prev_names	prev_punctuantion_in_the_middle	prev_question	prev_negation	prev_line_sentence	prev_numerals	prev_subject	prev_verbs	prev_andjectives	prev_adverbs	prev_personal_pronomen	prev_prepositions	prev_part	prev_conjunction	prev_interjection	prev_conj_constructions	post_word_count	post_accent_vowels	post_tf_idf	post_names	post_punctuantion_in_the_middle	post_question	post_negation	post_line_sentence	post_numerals	post_subject	post_verbs	post_andjectives	post_adverbs	post_personal_pronomen	post_prepositions	post_part	post_conjunction	post_interjection	post_conj_constructions
+1	0	p1	8	уиооуо	1	SVMPMASM	1	0*2*2*2*2*2*1	0	0	0	0	0	2	1	1	0	1	1	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	25	аояооуоеаиыиоееяео	1	1	0	0	0	0	0	8	6	1	2	1	3	0	3	0	0
+2	0	p1	9	аояооу	0	VBPSCASMV	1	0*2*2*2*2*2*1	0	0	0	0	0	2	2	1	1	1	1	0	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	24	оеаиыиоееяеоиеаиуе	1	0	0	0	0	0	0	10	4	1	1	0	3	0	3	0	0
+3	0	p1	7	оеаиыи	1	MSSVCSV	0	0*2*2*2*2*2*1	0	0	0	0	0	3	2	0	0	0	0	0	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	25	оееяеоиеаиуеыаоауа	2	0	0	0	1	0	0	9	4	1	1	1	3	1	3	0	0
+4	0	p1	9	оееяео	0	BCSVPSPSV	0	0*2*2*2*2*2*1	0	0	0	0	0	3	2	0	1	0	2	0	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	23	иеаиуеыаоауаиияиау	4	0	0	0	1	0	0	9	3	1	0	3	2	1	2	0	0
+5	0	p1	8	иеаиуе	0	SMCSPSSA	0	0*2*2*2*2*2*1	0	0	0	0	0	4	0	1	0	0	1	0	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	22	ыаоауаиияиауеооаяо	6	1	0	0	1	0	0	8	5	0	0	4	2	1	1	0	0
+6	0	p1	8	ыаоауа	2	VCSRVMSM	0	0*2*2*2*2*2*1	0	0	1	0	0	2	2	0	0	1	0	1	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	24	иияиауеооаяоеаиииэ	4	1	0	0	0	0	0	8	5	0	0	6	4	1	0	0	0
+7	0	p1	7	иияиау	2	SMPMVSS	0	0*2*2*2*2*2*1	0	0	0	0	0	3	1	0	0	2	1	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	25	еооаяоеаиииэоаеооу	3	3	0	0	0	0	0	8	4	1	0	6	4	1	0	0	0
+8	0	p1	7	еооаяо	2	VSSPMVS	1	0*2*2*2*2*2*1	0	0	0	0	0	3	2	0	0	1	1	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	25	еаиииэоаеооуеииееы	2	2	0	0	0	0	0	6	4	2	1	6	3	1	0	0	0
+9	0	p1	10	еаиииэ	0	SSPMMVVRPM	0	0*1*2*2*2*2*1	0	0	0	0	0	2	2	0	0	3	2	1	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	24	оаеооуеииееыоеаооу	2	2	0	0	0	0	0	7	3	2	2	4	1	1	2	0	0
+10	0	p1	8	оаеооу	1	MMPSSAS	2	0*2*2*2*2*2*1	0	0	0	0	0	3	0	1	0	2	1	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	25	еииееыоеаооуиоииоо	1	0	0	0	0	0	0	7	4	3	2	2	2	1	3	0	0
+11	0	p1	7	еииееы	1	MBMSAVV	0	0*2*2*2*2*2*1	0	0	0	0	0	1	2	1	1	1	0	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	24	оеаооуиоииооеиииио	3	1	0	0	0	0	0	10	2	4	1	1	2	1	3	0	0
+12	0	p1	9	оеаооу	0	BVCSCSMRS	0	0*2*2*2*2*2*1	0	0	0	0	0	3	1	0	1	1	0	1	2	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	23	иоииооеииииоиаааыу	3	1	0	0	0	0	0	9	4	4	1	1	2	0	2	0	0
+13	0	p1	9	иоииоо	0	PASCSVPSA	0	0*2*2*2*2*2*1	0	0	0	0	0	3	1	2	0	0	2	0	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	21	еииииоиаааыуоаееёё	3	1	0	0	0	0	0	8	5	2	2	1	0	0	3	0	0
+14	0	p1	6	еиииио	3	ASSSSA	1	0*2*2*2*2*2*1	0	0	0	0	0	4	0	2	0	0	0	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	22	иаааыуоаееёёооуиао	1	0	0	0	0	0	0	6	7	0	2	2	1	0	3	0	0
+15	0	p1	8	иаааыу	0	SVBVCVMS	0	0*2*2*2*2*2*1	0	0	0	0	0	2	3	0	1	1	0	0	1	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	27	оаееёёооуиаооаеяее	1	1	0	0	0	0	0	8	4	1	1	2	4	0	4	0	0
+16	0	p1	7	оаееёё	0	CCBSSVV	0	0*1*2*2*2*2*1	0	0	0	0	0	2	2	0	1	0	0	0	2	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	28	ооуиаооаеяееёеооао	3	1	0	0	1	0	0	10	3	1	0	3	5	1	2	0	0
+17	0	p1	7	ооуиао	1	SPMMVVS	0	0*1*2*2*2*2*1	0	0	0	0	0	2	2	0	0	1	1	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	21	оаеяееёеооао	2	1	0	0	1	0	0	8	1	1	0	2	4	1	2	0	0
+18	0	p1	13	оаеяее	0	PSMPSCMCPSASM	1	0*2*2*2*2*2*1	0	0	0	0	0	4	0	1	0	1	3	0	2	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	8	ёеооао	2	0	0	0	1	0	0	4	1	0	0	1	1	1	0	0	0
+19	0	p1	8	ёеооао	2	MRSPSVSS	0	0*2*2*2*2*2*1	0	0	1	0	0	4	1	0	0	1	1	1	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0

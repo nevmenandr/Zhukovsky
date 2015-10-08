@@ -75,13 +75,13 @@ def main():
     t.write('id\tanomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\tquestion\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tandjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tinterjection\tconj_constructions\tprev_word_count\tprev_accent_vowels\tprev_tf_idf\tprev_names\tprev_punctuantion_in_the_middle\tprev_question\tprev_negation\tprev_line_sentence\tprev_numerals\tprev_subject\tprev_verbs\tprev_andjectives\tprev_adverbs\tprev_personal_pronomen\tprev_prepositions\tprev_part\tprev_conjunction\tprev_interjection\tprev_conj_constructions\tpost_word_count\tpost_accent_vowels\tpost_tf_idf\tpost_names\tpost_punctuantion_in_the_middle\tpost_question\tpost_negation\tpost_line_sentence\tpost_numerals\tpost_subject\tpost_verbs\tpost_andjectives\tpost_adverbs\tpost_personal_pronomen\tpost_prepositions\tpost_part\tpost_conjunction\tpost_interjection\tpost_conj_constructions\n')
     for line_id in primary_line_metrics:
         arr_metrics = primary_line_metrics[line_id]
-        arr_metrics = context(arr_metrics, 'prev')
-        arr_metrics = context(arr_metrics, 'forw')
+        arr_metrics = context(arr_metrics, 'prev', line_id, primary_line_metrics)
+        arr_metrics = context(arr_metrics, 'forw', line_id, primary_line_metrics)
         table_line = u'\t'.join(arr_metrics)
         t.write(str(line_id) + '\t' + table_line + '\n')
     t.close()
 
-def context(arr_metrics, direction):
+def context(arr_metrics, direction, line_id, primary_line_metrics):
     prev_word_count = 0
     prev_acc_v = u''
     prev_tf_idf = 0
@@ -113,25 +113,25 @@ def context(arr_metrics, direction):
             else:
                 break
             
-            prev_word_count += int(prev_line[2])
-            prev_acc_v += prev_line[3]
-            prev_tf_idf += int(prev_line[4])
-            prev_names += int(prev_line[6])
-            prev_punkt += int(prev_line[8])
-            prev_quest += int(prev_line[9])
-            prev_neg += int(prev_line[10])
-            prev_sent += int(prev_line[11])
-            prev_num += int(prev_line[12])
-            prev_s += int(prev_line[13])
-            prev_v += int(prev_line[14])
-            prev_a += int(prev_line[15])
-            prev_adv += int(prev_line[16])
-            prev_spro += int(prev_line[17])
-            prev_pr += int(prev_line[18])
-            prev_part += int(prev_line[19])
-            prev_conj += int(prev_line[20])
-            prev_intj += int(prev_line[21])
-            prev_constr += int(prev_line[22])
+        prev_word_count += int(prev_line[2])
+        prev_acc_v += prev_line[3]
+        prev_tf_idf += int(prev_line[4])
+        prev_names += int(prev_line[6])
+        prev_punkt += int(prev_line[8])
+        prev_quest += int(prev_line[9])
+        prev_neg += int(prev_line[10])
+        prev_sent += int(prev_line[11])
+        prev_num += int(prev_line[12])
+        prev_s += int(prev_line[13])
+        prev_v += int(prev_line[14])
+        prev_a += int(prev_line[15])
+        prev_adv += int(prev_line[16])
+        prev_spro += int(prev_line[17])
+        prev_pr += int(prev_line[18])
+        prev_part += int(prev_line[19])
+        prev_conj += int(prev_line[20])
+        prev_intj += int(prev_line[21])
+        prev_constr += int(prev_line[22])
             
     prev_array = [str(prev_word_count), prev_acc_v, str(prev_tf_idf), str(prev_names), str(prev_punkt), str(prev_quest), str(prev_neg), str(prev_sent), str(prev_num), str(prev_s), str(prev_v), str(prev_a), str(prev_adv), str(prev_spro), str(prev_pr), str(prev_part), str(prev_conj), str(prev_intj), str(prev_constr)]
     arr_metrics.extend(prev_array)

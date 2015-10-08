@@ -7,7 +7,7 @@ from nltk.tokenize import RegexpTokenizer
 tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
 re_line = re.compile('>([^<]*)<br>')
 uppercase = u'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-punct = ':.?!";'
+re_punct = re.compile(u'(\.|\?|!) [а-яА-Я]+')
 punct_term = u'.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
@@ -45,16 +45,14 @@ def person_names(line):
 
 
 def punctuation(line):
-    for word in line:
-        if word in punct:
-            return 1
+    if re_punct.search(line):
+        return 1
     return 0
 
 
 def question(line):
-    for word in line:
-        if '?' in word:
-            return 1
+    if '?' in line:
+        return 1
     return 0
 
 def line_sentence(line):

@@ -28,7 +28,7 @@ def clean(line):
 def main():
     #t = codecs.open('metrics_table_no_context.tsv', 'w', 'utf-8')
     #t.write('id\tanomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tikt_schema\tpunctuation_in_the_middle\t' +
-            #'question\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tandjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tinterjection\tconj_constructions\n')
+    #        'question\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tandjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tinterjection\tconj_constructions\n')
     text = codecs.open('zhuk-all-nacnt-lemm.txt', 'r', 'utf-8')
     lemmed_lines = {}
     for line in text:
@@ -59,16 +59,16 @@ def main():
         pos, num, s, v, a, adv, spro, pr, part, conj, intj = pos_stream(lemmed_lines[line_id])
         names = str(person_names(line_arr))
         ikt = ikt_schema(line)
-        punct = str(punctuation(line_arr))
+        punct = str(punctuation(line))
         #repetition =
-        quest = str(question(line_arr))
+        quest = str(question(line))
         neg = str(negation(line))
         sent = str(line_sentence(line_arr))
         constr = str(ili(line))
         #table_line = str(line_id) + '\t' + words_count + '\t' + acc_v + '\t' + tf_idf + '\t' + pos + '\t' + names + '\t' + ikt + '\t' + punct +\
         #             '\t\t' + quest + '\t\t' + sent + '\t'
         primary_line_metrics[line_id] = [ano, position, words_count, acc_v, tf_idf, pos, names, ikt, punct, quest, neg, sent, str(num), str(s), str(v), str(a), str(adv), str(spro), str(pr), str(part), str(conj), str(intj), constr]
-        table_line = u'\t'.join(primary_line_metrics[line_id])
+        #table_line = u'\t'.join(primary_line_metrics[line_id])
         #t.write(str(line_id) + '\t' + table_line + '\n')
     #t.close()
     t = codecs.open('metrics_table_with_context_' + str(window) + '.csv', 'w', 'utf-8')

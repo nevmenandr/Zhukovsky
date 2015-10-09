@@ -54,13 +54,28 @@ def accent_vowels(string):
     vowel_string = u''
     for indx, sym in enumerate(string):
         if sym == '`':
-            vowel_string += string[indx - 1]
+            if string[indx - 1] in jot:
+                vowel_string += jot[string[indx - 1]]
+            else:
+                vowel_string += string[indx - 1]
     return vowel_string
             
 def ikt_schema(string):
     r = re.search(u'"><#(.+?) ([0-4*]+)>', string)
     schema = r.group(2)
-    return schema
+    if schema == '0*2*2*2*2*2*1':
+        typ = 0
+    elif schema == '0*1*2*2*2*2*1':
+        typ = 1
+    elif schema == '0*2*2*1*2*2*1':
+        typ = 2
+    elif schema == '0*2*2*2*1*2*1':
+        typ = 3
+    elif schema == '0*2*1*2*2*2*1':
+        typ = 4
+    else:
+        typ = 5
+    return typ
 
 def pos_stream(string):
     string = re.sub(u'<.+?>', u'', string)
@@ -102,7 +117,7 @@ def pos_stream(string):
             elif pos == 'CONJ':
                 conj += 1
             elif pos == 'INTJ':
-                intj += 1
+                v += 1
     return pos_string, num, s, v, a, adv, spro, pr, part, conj, intj
             
 def negation(string):

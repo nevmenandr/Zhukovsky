@@ -67,9 +67,9 @@ def ikt_schema(string):
         typ = 0
     elif schema == '0*1*2*2*2*2*1':
         typ = 1
-    elif schema == '0*2*2*1*2*2*1':
-        typ = 2
     elif schema == '0*2*2*2*1*2*1':
+        typ = 2
+    elif schema == '0*2*2*1*2*2*1':
         typ = 3
     elif schema == '0*2*1*2*2*2*1':
         typ = 4

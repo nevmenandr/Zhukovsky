@@ -5,9 +5,9 @@ from tf_idf import compute_tfidf
 import codecs, re
 from nltk.tokenize import RegexpTokenizer
 tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
-re_line = re.compile('>([^<]*)<br>')
+re_line = re.compile(u'>([^<]*)<br>')
 uppercase = u'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-re_punct = re.compile(u'(\.|\?|!) [а-яА-Я]+')
+re_punct = re.compile(u'(\.|\?|!|;) [а-яА-Я]+')
 punct_term = u'.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
@@ -46,6 +46,7 @@ def person_names(line):
 
 def punctuation(line):
     if re_punct.search(line):
+        #print line
         return 1
     return 0
 
@@ -56,8 +57,12 @@ def question(line):
     return 0
 
 def line_sentence(line):
-    if line[-1] in punct_term:
-        return 1
+    line = re.sub(u'<.+?>', u'', line)
+    if punctuation(line) == 0:
+        if line[-1] in punct_term:
+            return 1
+        else:
+            return 0
     else:
         return 0
 

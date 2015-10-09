@@ -77,6 +77,29 @@ def ikt_schema(string):
         typ = 5
     return typ
 
+def vowels_count(vowel_string):
+    o = 0
+    u = 0
+    a = 0
+    e = 0
+    i = 0
+    y = 0
+    for vow in vowel_string:
+        if vow == u'о':
+            o += 1
+        elif vow == u'у':
+            u += 1
+        elif vow == u'а':
+            a += 1
+        elif vow == u'э':
+            e += 1
+        elif vow == u'и':
+            i += 1
+        elif vow == u'ы':
+            y += 1
+    return o, u, a, e, i, y
+
+    
 def pos_stream(string):
     string = re.sub(u'<.+?>', u'', string)
     anals = string.split('}')

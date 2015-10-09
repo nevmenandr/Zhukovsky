@@ -1,4 +1,4 @@
-anomalia	position	words_count	accent_vowels	tf_idf	pos	names	punctuation_in_the_middle	question	negation	line_sentence	numerals	subject	verbs	andjectives	adverbs	personal_pronomen	prepositions	part	conjunction	conj_constructions
+anomalia	position	words_count	accent_vowels	tf_idf	pos	names	punctuation_in_the_middle	question	negation	line_sentence	numerals	subject	verbs	adjectives	adverbs	personal_pronomen	prepositions	part	conjunction	conj_constructions
 0	p1	8	уиооуо	1	SVMPMASM	1	0	0	0	0	0	2	1	1	0	1	1	0	0	0
 0	p1	9	аоаооу	0	VBPSCASMV	1	0	0	0	0	0	2	2	1	1	1	1	0	1	0
 0	p1	7	оэаиыи	1	MSSVCSV	0	0	0	0	0	0	3	2	0	0	0	0	0	1	0

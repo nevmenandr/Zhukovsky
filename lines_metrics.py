@@ -13,7 +13,7 @@ punct = ':.?!";'
 punct_term = '.?!"…'
 pers_names = set(line.strip() for line in codecs.open('person_names.txt', 'r', 'utf-8'))
 
-window = 3
+window = 7
 
 def clean(line):
     line = re.sub(u'<.+?>', u'', line)
@@ -27,7 +27,7 @@ def clean(line):
 
 def main():
     t = codecs.open('metrics_table_no_context.csv', 'w', 'utf-8')
-    t.write('anomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tpunctuation_in_the_middle\tquestion\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tandjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tconj_constructions\n')
+    t.write('anomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tpunctuation_in_the_middle\tquestion\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tadjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tconj_constructions\n')
     text = codecs.open('zhuk-all-nacnt-lemm.txt', 'r', 'utf-8')
     lemmed_lines = {}
     for line in text:
@@ -69,16 +69,17 @@ def main():
         t.write(table_line + '\n')
     #t.close()
     t = codecs.open('metrics_table_with_context_' + str(window) + '.csv', 'w', 'utf-8')
-    t.write('anomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tpunctuation_in_the_middle\tquestion\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tadjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tconj_constructions\tprev_word_count\tprev_accent_vowels\tprev_tf_idf\tprev_names\tprev_punctuantion_in_the_middle\tprev_question\tprev_negation\tprev_line_sentence\tprev_numerals\tprev_subject\tprev_verbs\tprev_adjectives\tprev_adverbs\tprev_personal_pronomen\tprev_prepositions\tprev_part\tprev_conjunction\tprev_interjection\tprev_conj_constructions\tprev_ikt_schema\tpost_word_count\tpost_accent_vowels\tpost_tf_idf\tpost_names\tpost_punctuantion_in_the_middle\tpost_question\tpost_negation\tpost_line_sentence\tpost_numerals\tpost_subject\tpost_verbs\tpost_adjectives\tpost_adverbs\tpost_personal_pronomen\tpost_prepositions\tpost_part\tpost_conjunction\tpost_conj_constructions\tpost_ikt_schema\n')
+    t.write('anomalia\tposition\twords_count\taccent_vowels\ttf_idf\tpos\tnames\tpunctuation_in_the_middle\tquestion\tnegation\tline_sentence\tnumerals\tsubject\tverbs\tadjectives\tadverbs\tpersonal_pronomen\tprepositions\tpart\tconjunction\tconj_constructions\tprev_word_count\tprev_accent_vowels\tprev_tf_idf\tprev_names\tprev_punctuantion_in_the_middle\tprev_question\tprev_negation\tprev_line_sentence\tprev_numerals\tprev_subject\tprev_verbs\tprev_adjectives\tprev_adverbs\tprev_personal_pronomen\tprev_prepositions\tprev_part\tprev_conjunction\tprev_conj_constructions\tprev_ikt_schema\tpost_word_count\tpost_accent_vowels\tpost_tf_idf\tpost_names\tpost_punctuantion_in_the_middle\tpost_question\tpost_negation\tpost_line_sentence\tpost_numerals\tpost_subject\tpost_verbs\tpost_adjectives\tpost_adverbs\tpost_personal_pronomen\tpost_prepositions\tpost_part\tpost_conjunction\tpost_conj_constructions\tpost_ikt_schema\n')
     for line_id in primary_line_metrics:
         arr_metrics = primary_line_metrics[line_id]
-        arr_metrics = context(arr_metrics, 'prev', line_id, primary_line_metrics)
-        arr_metrics = context(arr_metrics, 'forw', line_id, primary_line_metrics)
-        table_line = u'\t'.join(arr_metrics)
-        t.write(str(line_id) + '\t' + table_line + '\n')
+        arr_metrics1 = arr_metrics[:-1]
+        arr_metrics1 = context(arr_metrics, arr_metrics1, 'prev', line_id, primary_line_metrics)
+        arr_metrics1 = context(arr_metrics, arr_metrics1, 'forw', line_id, primary_line_metrics)
+        table_line = u'\t'.join(arr_metrics1)
+        t.write(table_line + '\n')
     t.close()
 
-def context(arr_metrics, direction, line_id, primary_line_metrics):
+def context(arr_metrics, arr_metrics1, direction, line_id, primary_line_metrics):
     prev_word_count = 0
     prev_acc_v = u''
     prev_tf_idf = 0
@@ -128,10 +129,10 @@ def context(arr_metrics, direction, line_id, primary_line_metrics):
         prev_conj += int(prev_line[19])
         prev_constr += int(prev_line[20])
         prev_ikt += int(prev_line[21])
-            
+    
     prev_array = [str(prev_word_count), prev_acc_v, str(prev_tf_idf), str(prev_names), str(prev_punkt), str(prev_quest), str(prev_neg), str(prev_sent), str(prev_num), str(prev_s), str(prev_v), str(prev_a), str(prev_adv), str(prev_spro), str(prev_pr), str(prev_part), str(prev_conj), str(prev_constr), str(prev_ikt)]
-    arr_metrics.extend(prev_array)
-    return arr_metrics
+    arr_metrics1.extend(prev_array)
+    return arr_metrics1
                 
         
 

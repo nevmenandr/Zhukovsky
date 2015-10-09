@@ -1,0 +1,173 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CfsSubsetEval 
+Search:weka.attributeSelection.ScatterSearchV1 -T 0.0 -Z -1 -R 0 -S 1 -D
+Relation:     metrics_table_with_context_5
+Instances:    12106
+Attributes:   59
+              anomalia
+              position
+              words_count
+              accent_vowels
+              tf_idf
+              pos
+              names
+              punctuation_in_the_middle
+              question
+              negation
+              line_sentence
+              numerals
+              subject
+              verbs
+              adjectives
+              adverbs
+              personal_pronomen
+              prepositions
+              part
+              conjunction
+              conj_constructions
+              prev_word_count
+              prev_accent_vowels
+              prev_tf_idf
+              prev_names
+              prev_punctuantion_in_the_middle
+              prev_question
+              prev_negation
+              prev_line_sentence
+              prev_numerals
+              prev_subject
+              prev_verbs
+              prev_adjectives
+              prev_adverbs
+              prev_personal_pronomen
+              prev_prepositions
+              prev_part
+              prev_conjunction
+              prev_conj_constructions
+              prev_ikt_schema
+              post_word_count
+              post_accent_vowels
+              post_tf_idf
+              post_names
+              post_punctuantion_in_the_middle
+              post_question
+              post_negation
+              post_line_sentence
+              post_numerals
+              post_subject
+              post_verbs
+              post_adjectives
+              post_adverbs
+              post_personal_pronomen
+              post_prepositions
+              post_part
+              post_conjunction
+              post_conj_constructions
+              post_ikt_schema
+Evaluation mode:evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Scatter Search 
+	Init Population: 29
+	Kind of Combination: Greedy Combination
+	Random number seed: 1
+	Debug: true
+	Treshold:    0    
+	Total number of subsets evaluated: 68699
+	Merit of best subset found:    0.055
+
+
+Population: 29
+merit    	subset
+ 0.02688	 [3]
+ 0.03755	 [18, 38, 45, 59]
+ 0.02255	 [36]
+ 0.02171	 [12, 45]
+ 0.03061	 [16, 45, 59]
+ 0.02542	 [8, 16, 44]
+ 0.03006	 [36, 44, 58]
+ 0.01839	 [15]
+ 0.02878	 [5, 10, 36, 40]
+ 0.02754	 [3, 19, 26]
+ 0.02819	 [3, 19, 58]
+ 0.01295	 [11]
+ 0.02076	 [15, 16]
+ 0.03055	 [3, 16, 27, 33, 48, 58]
+ 0.02324	 [13, 18, 30, 44]
+ 0.01498	 [12, 13, 18]
+ 0.02581	 [26, 38]
+ 0.00962	 [27]
+ 0.03017	 [5, 8, 48, 59]
+ 0.01124	 [12, 26]
+ 0.01502	 [16, 39]
+ 0.02527	 [2, 38]
+ 0.01853	 [5, 11, 13, 16, 43, 48]
+ 0.02959	 [3, 8, 10, 12]
+ 0.0317 	 [8, 10, 18, 21, 38, 58]
+ 0.01765	 [3, 21, 31]
+ 0.01516	 [21, 30, 31, 45, 48, 56]
+ 0.02165	 [10, 11, 15, 40, 58]
+ 0.02007	 [8, 12, 20, 27, 58]
+
+ReferenceSet:
+----------------Most Significants Solutions--------------
+ 0.03755	 [18, 38, 45, 59]
+ 0.0317 	 [8, 10, 18, 21, 38, 58]
+ 0.03061	 [16, 45, 59]
+ 0.03055	 [3, 16, 27, 33, 48, 58]
+ 0.03017	 [5, 8, 48, 59]
+ 0.03006	 [36, 44, 58]
+ 0.02959	 [3, 8, 10, 12]
+----------------Most Diverses Solutions--------------
+ 0.02754	 [3, 19, 26]
+ 0.01295	 [11]
+ 0.01839	 [15]
+ 0.01516	 [21, 30, 31, 45, 48, 56]
+ 0.02527	 [2, 38]
+ 0.01502	 [16, 39]
+ 0.00962	 [27]
+
+Last Reference Set Updated:
+merit    	subset
+ 0.05481	 [2, 3, 8, 11, 12, 15, 16, 21, 27, 36, 38, 39, 44, 45, 58, 59]
+ 0.05476	 [2, 3, 8, 11, 12, 15, 16, 21, 27, 36, 38, 44, 45, 58, 59]
+ 0.05475	 [2, 3, 8, 11, 12, 15, 16, 27, 36, 38, 39, 44, 45, 58, 59]
+ 0.05469	 [2, 3, 8, 11, 12, 15, 16, 27, 36, 38, 44, 45, 58, 59]
+ 0.01516	 [21, 30, 31, 45, 48, 56]
+ 0.02754	 [3, 19, 26]
+ 0.00962	 [27]
+ 0.01839	 [15]
+ 0.05421	 [3, 8, 11, 15, 16, 27, 36, 38, 44, 45, 58, 59]
+ 0.05404	 [3, 8, 12, 15, 16, 21, 27, 36, 38, 39, 44, 45, 58, 59]
+ 0.05373	 [3, 8, 15, 16, 27, 36, 38, 39, 44, 45, 58, 59]
+ 0.05245	 [3, 8, 15, 27, 36, 38, 44, 45, 59]
+ 0.05242	 [3, 8, 15, 21, 27, 30, 36, 38, 44, 45, 59]
+ 0.05215	 [3, 8, 15, 21, 30, 36, 38, 44, 45, 59]
+
+Attribute Subset Evaluator (supervised, Class (numeric): 1 anomalia):
+	CFS Subset Evaluator
+	Including locally predictive attributes
+
+Selected attributes: 2,3,8,11,12,15,16,21,27,36,38,39,44,45,58,59 : 16
+                     position
+                     words_count
+                     punctuation_in_the_middle
+                     line_sentence
+                     numerals
+                     adjectives
+                     adverbs
+                     conj_constructions
+                     prev_question
+                     prev_prepositions
+                     prev_conjunction
+                     prev_conj_constructions
+                     post_names
+                     post_punctuantion_in_the_middle
+                     post_conj_constructions
+                     post_ikt_schema
+
+
